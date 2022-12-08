@@ -1,7 +1,6 @@
 // business logic
 
 function Pizza() {
-  this.orderNumber = 0;
   this.size; 
   this.toppings = [];
   this.price;
@@ -28,3 +27,7 @@ Pizza.prototype.toppingPrice = function() {
   });
   return toppingPrice;
 };
+
+Pizza.prototype.pizzaPrice = function() {
+  this.price = this.sizePrice() + this.toppingPrice();
+}
