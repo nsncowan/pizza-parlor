@@ -4,18 +4,27 @@ function Pizza() {
   this.orderNumber = 0;
   this.size; 
   this.toppings = [];
+  this.price;
 }
 
-Pizza.prototype.pizzaPrice = function() {
-  let pizzaPrice = 10; 
+Pizza.prototype.sizePrice = function() {
+  let sizePrice = 10; 
   if (this.size === "medium") {
-    pizzaPrice += 2;
+    sizePrice += 2;
   }
   else if (this.size === "large") {
-    pizzaPrice += 4;
+    sizePrice += 4;
   }
   else {
-    pizzaPrice += 0;
+    sizePrice += 0;
   }
-  return pizzaPrice;
+  return sizePrice;
 }
+
+Pizza.prototype.toppingPrice = function() {
+  let toppingPrice = 0;
+  this.toppings.forEach(function() {
+    toppingPrice += 1;
+  });
+  return toppingPrice;
+};
