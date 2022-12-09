@@ -45,18 +45,4 @@ test:
 code: 
 expected output: 
 
-test: 
-code: 
-expected output: 
 
-test: 
-code: 
-expected output: 
-
-test: 
-code: 
-expected output: 
-
-test: 
-code: 
-expected output: 
