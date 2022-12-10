@@ -31,3 +31,15 @@ Pizza.prototype.toppingPrice = function() {
 Pizza.prototype.pizzaPrice = function() {
   this.price = this.sizePrice() + this.toppingPrice();
 }
+
+
+// UI Logic
+
+let pizzaOrder = new Pizza();
+
+function handleForm(event) {
+  event.preventDefault();
+  const toppingSelection = document.querySelectorAll("input[name=pizzaTopping]:checked");
+  pizzaOrder.toppings.push(toppingSelection);
+
+}
