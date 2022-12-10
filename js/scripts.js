@@ -39,7 +39,19 @@ let pizzaOrder = new Pizza();
 
 function handleForm(event) {
   event.preventDefault();
+  const sizeSelection = document.querySelector("input[name=pizzaSize]:checked");
+  pizzaOrder.size = sizeSelection;
   const toppingSelection = document.querySelectorAll("input[name=pizzaTopping]:checked");
   pizzaOrder.toppings.push(toppingSelection);
+}
 
+function displayPizzaPrice() {
+  priceToDisplay = pizzaOrder.pizzaPrice;
+  let displayOrder = document.getElementById("displayOrder");
+  let priceHeading = document.createElement('h1');
+  priceHeading.append("Your Order Total: ");
+  displayOrder.append(priceHeading);
+  let orderPrice = document.createElement("h3");
+  orderPrice.append(pizzaOrder.price.toString());
+  displayOrder.after(orderPrice);
 }
