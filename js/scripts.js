@@ -35,23 +35,33 @@ Pizza.prototype.pizzaPrice = function() {
 
 // UI Logic
 
-let pizzaOrder = new Pizza();
 
-function handleForm(event) {
-  event.preventDefault();
-  const sizeSelection = document.querySelector("input[name=pizzaSize]:checked");
-  pizzaOrder.size = sizeSelection;
-  const toppingSelection = document.querySelectorAll("input[name=pizzaTopping]:checked");
-  pizzaOrder.toppings.push(toppingSelection);
-}
 
 function displayPizzaPrice() {
-  priceToDisplay = pizzaOrder.pizzaPrice;
+  priceToDisplay = pizzaOrder.price;
   let displayOrder = document.getElementById("displayOrder");
   let priceHeading = document.createElement('h1');
   priceHeading.append("Your Order Total: ");
   displayOrder.append(priceHeading);
   let orderPrice = document.createElement("h3");
-  orderPrice.append(pizzaOrder.price.toString());
+  orderPrice.append(pizzaOrder.price);
   displayOrder.after(orderPrice);
 }
+
+function handleForm() {
+  let pizzaOrder = new Pizza();
+  const sizeSelection = document.querySelector("input[name=pizzaSize]:checked");
+  pizzaOrder.size = sizeSelection;
+  const toppingSelection = document.querySelectorAll("input[name=pizzaTopping]:checked");
+  pizzaOrder.toppings.push(toppingSelection);
+  displayPizzaPrice();
+}
+
+
+window.addEventListener("load", function() {
+  let orderButton = document.getElementById("placeOrder");
+  orderButton.addEventListener("submit", function(event) {
+    event.preventDefault();
+    handleForm();
+  });
+});
