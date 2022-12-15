@@ -37,7 +37,7 @@ Pizza.prototype.pizzaPrice = function() {
 
 
 
-function displayPizzaPrice() {
+function displayPizzaPrice(pizzaOrder) {
   priceToDisplay = pizzaOrder.price;
   let displayOrder = document.getElementById("displayOrder");
   let priceHeading = document.createElement('h1');
@@ -45,23 +45,23 @@ function displayPizzaPrice() {
   displayOrder.append(priceHeading);
   let orderPrice = document.createElement("h3");
   orderPrice.append(pizzaOrder.price);
+  console.log(pizzaOrder.price);
   displayOrder.after(orderPrice);
 }
 
-function handleForm() {
+function handleForm(event) {
+  event.preventDefault();
   let pizzaOrder = new Pizza();
   const sizeSelection = document.querySelector("input[name=pizzaSize]:checked");
   pizzaOrder.size = sizeSelection;
   const toppingSelection = document.querySelectorAll("input[name=pizzaTopping]:checked");
   pizzaOrder.toppings.push(toppingSelection);
-  displayPizzaPrice();
+  pizzaOrder.pizzaPrice();
+  displayPizzaPrice(pizzaOrder);
 }
 
 
 window.addEventListener("load", function() {
-  let orderButton = document.getElementById("placeOrder");
-  orderButton.addEventListener("submit", function(event) {
-    event.preventDefault();
-    handleForm();
-  });
+  let orderButton = document.getElementById("pizzaOrder");
+  orderButton.addEventListener("submit", () => handleForm(event));
 });
