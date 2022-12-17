@@ -45,7 +45,6 @@ function displayPizzaPrice(pizzaOrder) {
   displayOrder.append(priceHeading);
   let orderPrice = document.createElement("h3");
   orderPrice.append(pizzaOrder.price);
-  console.log(pizzaOrder.price);
   displayOrder.after(orderPrice);
 }
 
@@ -55,7 +54,9 @@ function handleForm(event) {
   const sizeSelection = document.querySelector("input[name=pizzaSize]:checked");
   pizzaOrder.size = sizeSelection;
   const toppingSelection = document.querySelectorAll("input[name=pizzaTopping]:checked");
-  pizzaOrder.toppings.push(toppingSelection);
+  toppingSelection.forEach(function(element) {
+    pizzaOrder.toppings.push(element);
+  });
   pizzaOrder.pizzaPrice();
   displayPizzaPrice(pizzaOrder);
 }
