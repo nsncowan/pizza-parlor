@@ -51,7 +51,7 @@ function handleForm(event) {
   event.preventDefault();
   displayOrder.innerText = null;
   let pizzaOrder = new Pizza();
-  const sizeSelection = document.querySelector("input[name=pizzaSize]:checked");
+  const sizeSelection = document.querySelector("input[name=pizzaSize]:checked").value;
   pizzaOrder.size = sizeSelection;
   const toppingSelection = document.querySelectorAll("input[name=pizzaTopping]:checked");
   toppingSelection.forEach(function(element) {
