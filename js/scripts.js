@@ -43,8 +43,8 @@ function displayPizzaPrice(pizzaOrder) {
   priceHeading.append("Your Order Total: ");
   displayOrder.append(priceHeading);
   let orderPrice = document.createElement("h3");
-  orderPrice.innerText = null;
-  orderPrice.append(pizzaOrder.price);
+  orderPrice.innerText = pizzaOrder.price;
+  //orderPrice.append(pizzaOrder.price);
   displayOrder.after(orderPrice);
 }
 
