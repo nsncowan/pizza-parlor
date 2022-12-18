@@ -38,18 +38,19 @@ Pizza.prototype.pizzaPrice = function() {
 
 
 function displayPizzaPrice(pizzaOrder) {
-  priceToDisplay = pizzaOrder.price;
   let displayOrder = document.getElementById("displayOrder");
   let priceHeading = document.createElement('h1');
   priceHeading.append("Your Order Total: ");
   displayOrder.append(priceHeading);
   let orderPrice = document.createElement("h3");
+  orderPrice.innerText = null;
   orderPrice.append(pizzaOrder.price);
   displayOrder.after(orderPrice);
 }
 
 function handleForm(event) {
   event.preventDefault();
+  displayOrder.innerText = null;
   let pizzaOrder = new Pizza();
   const sizeSelection = document.querySelector("input[name=pizzaSize]:checked");
   pizzaOrder.size = sizeSelection;
