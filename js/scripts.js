@@ -44,7 +44,7 @@ function displayPizzaPrice(pizzaOrder) {
   displayOrder.append(priceHeading);
   let orderPrice = document.createElement("h3");
   orderPrice.innerText = pizzaOrder.price;
-  displayOrder.after(orderPrice);
+  displayOrder.append(orderPrice);
 }
 
 function handleForm(event) {
